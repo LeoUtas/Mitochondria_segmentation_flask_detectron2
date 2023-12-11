@@ -26,8 +26,8 @@ This repository hosts the source code for a web application designed for instanc
 </p>
 
 <p align="justify">
-  <a href="GIF">
-    <img src="https://mito-app-651cbfda9bde.herokuapp.com/" width="560" alt=""/> Live demo
+  <a href="https://mito-app-651cbfda9bde.herokuapp.com/">
+    Live demo
   </a>
 </p>
 
