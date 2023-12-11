@@ -46,6 +46,7 @@ The application documentation of <a href="https://detectron2.readthedocs.io/en/l
 -   HTML
 -   CSS (Bootstrap)
 -   Docker
+-   Github Action
 
 ### Data source
 
