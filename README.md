@@ -75,7 +75,7 @@ In a comparative experiment with this dataset, I evaluated both Detectron2 and Y
     -   Run the Docker Container (once the docker image is built, you will run a docker container, map it to the port 5000)
 
     ```cmd
-    docker run -p 5000:5000 -v "$(PWD):/app" --name <name of the container> <name of the app>
+    docker run -p 5000:5000 -v "$(PWD):/app" --name <name of the container> <name of the docker image>
     ```
 
 <br>
