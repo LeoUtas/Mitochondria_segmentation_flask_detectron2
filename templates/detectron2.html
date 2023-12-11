@@ -1,0 +1,108 @@
+{% extends "base.html" %} {% block content %}
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='styles/demonstration.css') }}"
+/>
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+/>
+
+<body>
+    <main class="content">
+        <div>
+            <div class="center-title">
+                <h1 class="title">Mitochondria segmentation</h1>
+                <span class="demo-text">DEMO</span>
+            </div>
+            <div class="center-title sub-tile">Detectron2</div>
+            <blockquote class="blockquote text-center">
+                <p id="typing-text"></p>
+                <footer class="blockquote-footer">
+                    <a
+                        href="https://en.wikipedia.org/wiki/George_E._P._Box"
+                        target="_blank"
+                        rel=""
+                        >George Box</a
+                    >
+                </footer>
+            </blockquote>
+        </div>
+
+        <form
+            method="post"
+            action="/detectron2"
+            enctype="multipart/form-data"
+            class="form"
+        >
+            <div class="mb-5">
+                <input type="file" class="form-control" name="image" required />
+            </div>
+            <button type="submit" class="btn btn-primary center-btn">
+                Make segmentation
+            </button>
+        </form>
+
+        {% with messages = get_flashed_messages() %} {% if messages %}
+        <div class="result text-center mt-5">
+            <img
+                src="{{ url_for('static', filename='images_output/' + messages[0]) }}"
+                width="640"
+                alt=""
+            />
+
+            <!-- <img src="{{ messages[0] }}" width="640" /> -->
+            <h5 class="count-mito">
+                Total objects: <span class="count-mito">{{ messages[1] }}</span>
+            </h5>
+            <h5 class="">
+                Mean area: <span class="">{{ messages[2] }} px</span>
+            </h5>
+            <a
+                href="{{ url_for('static', filename='images_output/' + messages[0]) }}"
+                download
+                >Download image</a
+            >
+            <span>|</span>
+            <a
+                href="{{ url_for('static', filename='images_output/' + messages[3]) }}"
+                download
+                >Download CSV</a
+            >
+            <h5 class="execution_time_class">
+                Execution time: {{ messages[4] }} s
+            </h5>
+        </div>
+        {% endif %} {% endwith %}
+        <img
+            src="/home/hoangng/Projects/Mito_segmentation/Webapp/static/images_output/1698712806.png"
+            alt=""
+        />
+    </main>
+
+    <p class="bottom-text">
+        This demonstration applies
+        <a
+            href="https://github.com/facebookresearch/detectron2"
+            target="_blank"
+            rel=""
+            >detectron2</a
+        >
+        in an instance segmentation task on microscopy images for detecting and
+        segmenting
+        <a href="https://en.wikipedia.org/wiki/Mitochondrion">mitochondria</a>.
+        <a
+            href="https://www.epfl.ch/labs/cvlab/data/data-em/"
+            target="_blank"
+            rel=""
+            >Data source</a
+        >.
+    </p>
+</body>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+{% endblock %}

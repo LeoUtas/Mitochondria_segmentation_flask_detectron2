@@ -1,0 +1,32 @@
+{% extends "base.html" %} {% block content %}
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='styles/test_images.css') }}"
+/>
+
+<div class="container mt-3">
+    <div class="center-title">
+        <h1 class="title">Test Images</h1>
+    </div>
+    <div class="row">
+        {% for image_file in image_files %}
+        <div class="col-md-4 mb-3">
+            <div class="img-container">
+                <img
+                    src="{{ url_for('static', filename='images_test/' + image_file) }}"
+                    class="img-fluid"
+                    alt="{{ image_file }}"
+                />
+                <a
+                    href="{{ url_for('static', filename='images_test/' + image_file) }}"
+                    download="{{ image_file }}"
+                    class="btn btn-primary mt-2"
+                >
+                    Download
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

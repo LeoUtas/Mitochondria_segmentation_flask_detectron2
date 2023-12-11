@@ -1,0 +1,202 @@
+{% extends "base.html" %} {% block content %}
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='styles/index.css') }}"
+/>
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+/>
+
+<div>
+    <div class="center-title">
+        <h1 class="title">Mitochondria segmentation</h1>
+        <span class="demo-text">DEMO</span>
+    </div>
+
+    <blockquote class="blockquote text-center">
+        <p id="typing-text"></p>
+        <footer class="blockquote-footer">
+            <a
+                href="https://en.wikipedia.org/wiki/George_E._P._Box"
+                target="_blank"
+                rel=""
+                >George Box</a
+            >
+        </footer>
+    </blockquote>
+</div>
+
+<div class="container mt-3">
+    <div class="row">
+        <!-- Column 1: Image -->
+        <div class="col-md-8 col-12 mb-4 d-flex justify-content-center">
+            <div id="iframeCard" class="card rounded-corner">
+                <div class="title-container">
+                    <div class="title-left">
+                        <h6>Ground truth</h6>
+                    </div>
+                    <div class="title-right">
+                        <h6>Image segmentation</h6>
+                    </div>
+                </div>
+                <div class="iframe-container">
+                    <iframe
+                        id="image-iframe-detectron2"
+                        class="card-img-top rounded-top image-iframe"
+                        alt="Image Description"
+                    ></iframe>
+                </div>
+                <div class="navigation-buttons text-center mt-2">
+                    <button
+                        id="prevButton-detectron2"
+                        class="btn btn-outline-primary btn-lg rounded-circle"
+                    >
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <button
+                        id="nextButton-detectron2"
+                        class="btn btn-outline-primary btn-lg rounded-circle"
+                    >
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Column 2: Plot -->
+        <div class="col-md-4 barplot-card-frame">
+            <div class="model-title">Detectron2</div>
+            <div
+                id="barplotAreaCard"
+                class="card rounded-corner barplot-card mb-3"
+            >
+                <div class="plot-title text-center">Mean Area</div>
+                <img id="barplotArea-detectron2" alt="" />
+            </div>
+
+            <div id="barplotCountCard" class="card rounded-corner barplot-card">
+                <div class="plot-title text-center">Mitochondria Count</div>
+                <img id="barplotCount-detectron2" alt="" />
+            </div>
+            <div id="imageIndexContainer" class="text-left card-body">
+                <span id="imageIndexLabel-detectron2">Image # :</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Column 1: Image -->
+        <div class="col-md-8 col-12 mb-4 d-flex justify-content-center">
+            <div id="iframeCard" class="card rounded-corner">
+                <div class="title-container">
+                    <div class="title-left">
+                        <h6>Ground truth</h6>
+                    </div>
+                    <div class="title-right">
+                        <h6>Image segmentation</h6>
+                    </div>
+                </div>
+                <div class="iframe-container">
+                    <iframe
+                        id="image-iframe-YOLOv8"
+                        class="card-img-top rounded-top image-iframe"
+                        alt="Image Description"
+                    ></iframe>
+                </div>
+                <div class="navigation-buttons text-center mt-2">
+                    <button
+                        id="prevButton-YOLOv8"
+                        class="btn btn-outline-primary btn-lg rounded-circle"
+                    >
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <button
+                        id="nextButton-YOLOv8"
+                        class="btn btn-outline-primary btn-lg rounded-circle"
+                    >
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Column 2: Plot -->
+        <div class="col-md-4 barplot-card-frame">
+            <div class="model-title">YOLOv8</div>
+            <div
+                id="barplotAreaCard"
+                class="card rounded-corner barplot-card mb-3"
+            >
+                <div class="plot-title text-center">Mean Area</div>
+                <img id="barplotArea-YOLOv8" alt="" />
+            </div>
+
+            <div id="barplotCountCard" class="card rounded-corner barplot-card">
+                <div class="plot-title text-center">Mitochondria Count</div>
+                <img id="barplotCount-YOLOv8" alt="" />
+            </div>
+            <div id="imageIndexContainer" class="text-left card-body">
+                <span id="imageIndexLabel-YOLOv8">Image # :</span>
+            </div>
+            <!-- <p class="plot-discription">
+                The plots compare prediction and true labels regarding the mean
+                area and count of mitochondria, respectively. It is noted that
+                the plots are not reliable for evaluating model performance;
+                however, they, together with the comparison image, provide a
+                general picture of the segmentation performance.
+            </p> -->
+        </div>
+    </div>
+
+    <!-- <div class="COCOmetrics-table">
+        <h6>bbox</h6>
+        <table id="bbox-table">
+            <thead></thead>
+            <tbody></tbody>
+        </table>
+
+        <h6>segm</h6>
+        <table id="segm-table">
+            <thead></thead>
+            <tbody></tbody>
+        </table>
+    </div> -->
+
+    <p class="bottom-text">
+        This demonstration applied
+        <a
+            href="https://github.com/facebookresearch/detectron2"
+            target="_blank"
+            rel=""
+            >detectron2</a
+        >
+        and
+        <a
+            href="https://github.com/ultralytics/ultralytics"
+            target="_blank"
+            rel=""
+            >YOLOv8</a
+        >
+        in an instance segmentation task on microscopy images for detecting and
+        segmenting
+        <a href="https://en.wikipedia.org/wiki/Mitochondrion">mitochondria</a>
+        <a
+            href="https://www.epfl.ch/labs/cvlab/data/data-em/"
+            target="_blank"
+            rel=""
+            >(data source)</a
+        >. The two models did well in this example, given the complexity of the
+        images. In some cases, they generated false positive and false negative
+        results (e.g., image #: 9). Detectron2 outperformed YOLOv8 in some cases
+        for segmentation; however, YOLOv8 is often faster than detectron2
+        regarding performance speed.
+    </p>
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+{% endblock %}
