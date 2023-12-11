@@ -1,0 +1,12 @@
+.title {
+    font-size: 38px;
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
+    display: inline-block;
+}
+
+.center-title {
+    position: relative;
+    text-align: center;
+    width: 100%;
+}

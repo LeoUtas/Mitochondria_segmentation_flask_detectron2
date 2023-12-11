@@ -1,0 +1,171 @@
+body {
+  padding-top: 1rem;
+}
+
+.title {
+  font-size: 38px;
+  margin-top: 1.2rem;
+  margin-bottom: 1.2rem;
+  display: inline-block;
+}
+
+.center-title {
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+.demo-text {
+  position: relative;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.9rem;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  color: #5b0888;
+  filter: saturate(50%);
+}
+
+.blockquote {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.blockquote-footer {
+  padding-top: 1.0rem;
+  font-size: 0.8rem;
+}
+
+#typing-text {
+  min-height: 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.5;
+}
+
+.rounded-corner {
+  border-radius: 25px;
+}
+
+.navigation-buttons {
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  margin: 0 1rem;
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+}
+
+.btn i {
+  font-size: 1.5rem;
+}
+
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: .5rem;
+}
+
+.title-left,
+.title-right {
+  width: 50%;
+  text-align: center;
+}
+
+.image-iframe {
+  transform-origin: top left;
+  width: 640px;
+  height: 480px;
+  justify-content: center;
+  align-items: center;
+}
+
+#iframeCard {
+  border: none !important;
+}
+
+.barplot-card-frame {
+  padding-top: 3rem;
+}
+
+.card-text {
+  text-align: justify;
+  padding: auto;
+}
+
+.model-title {
+  font-size: 1.5rem;
+  padding-bottom: 1.5rem; 
+}
+
+.barplot-card {
+  max-width: 260px;
+  padding-bottom: .5rem;
+  padding-left: .5rem;
+}
+
+#imageIndexContainer,
+.barplot-card .plot-discription {
+  box-sizing: border-box;
+}
+
+#imageIndexContainer {
+  margin-left: 1.5rem;
+}
+
+.plot-title{
+  padding-top: 1rem;
+  font-size: 1.1rem;
+}
+
+.plot-discription{
+  padding-top: 2rem;
+  max-width: 260px;
+  margin: .5rem;
+  text-align: justify;
+}
+
+.bottom-text {
+  position: flex;  
+  padding-top: 2.5rem;
+  padding-bottom: auto;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  width: 100%;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.COCOmetrics-table {
+  margin: auto;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
