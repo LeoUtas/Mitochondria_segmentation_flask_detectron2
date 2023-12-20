@@ -28,8 +28,7 @@ RUN pip install torch==2.1.0 torchvision==0.16.0 --index-url https://download.py
 
 # Clone the Detectron2 repository and install
 RUN git clone https://github.com/facebookresearch/detectron2.git && \
-    cd detectron2 && \
-    pip install -e .
+    python -m pip install -e detectron2
 
 
 COPY requirements.txt .
@@ -37,9 +36,10 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 
-# Copy the rest of application's source code
+# Copy the rest of your application's source code
 COPY . .
 
 
-# The command to run application
+# The command to run your application
 CMD ["python", "app.py"]
+

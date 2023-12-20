@@ -9,6 +9,7 @@ from skimage.measure import regionprops, label
 import matplotlib
 
 matplotlib.use("Agg")
+from matplotlib import pyplot as plt
 from time import time
 
 # ________________ HANDLE THE PATH THING ________________ #

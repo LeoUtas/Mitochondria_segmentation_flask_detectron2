@@ -6,6 +6,8 @@ heroku container:login
 
 heroku create <app-name>
 
+heroku container:push web --app your-app-name
+
 heroku ps:scale web=1 --app your-app-name
 
 heroku container:push web --app your-app-name
